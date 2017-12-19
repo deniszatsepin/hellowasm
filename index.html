@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            fetch('http://127.0.0.1:8080/build/hellowasm.wasm')
+                .then(response => response.arrayBuffer())
+                .then(bytes => WebAssembly.instantiate(bytes, {}))
+                .then(results => {
+                    const x = parseInt(prompt('Specify variable x', 1))
+                    const y = parseInt(prompt('Specify variable y', 1))
+                    alert(`Result: ${results.instance.exports.add(x, y)}`)
+                })
+        </script>
+    </body>
+</html>

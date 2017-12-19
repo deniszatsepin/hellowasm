@@ -1,0 +1,19 @@
+{
+  "name": "hellowasm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "./bin/setup_rust.sh",
+    "compile": "cargo +nightly build --target wasm32-unknown-unknown --release",
+    "gc": "wasm-gc ./target/wasm32-unknown-unknown/release/hellowasm.wasm ./build/hellowasm.wasm",
+    "build": "mkdir -p build && npm run compile && npm run gc",
+    "start": "http-server --cors"
+  },
+  "keywords": [],
+  "author": "Denis Zatsepin <denis@itperson.blog>",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}

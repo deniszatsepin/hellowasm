@@ -1,0 +1,10 @@
+[package]
+name = "hellowasm"
+version = "0.1.0"
+authors = ["Denis Zatsepin <denis@itperson.blog>"]
+
+[dependencies]
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["cdylib"]
